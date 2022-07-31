@@ -1,0 +1,10 @@
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+rustflags = [
+    "-C", "relocation-model=pie",
+    "-C", "link-arg=-Tlayout.ld",
+    "-C", "link-arg=-Texterns.ld",
+]
+
+[build]
+target = "thumbv7em-none-eabi"   # Cortex-M4 without FPU
+#target = "thumbv7em-none-eabihf" # Cortex-M4 with FPU
